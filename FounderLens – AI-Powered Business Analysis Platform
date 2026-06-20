@@ -1,0 +1,150 @@
+# FounderLens – AI-Powered Business Analysis Platform
+
+## Overview
+
+FounderLens is an AI-powered business analysis platform designed to help founders, entrepreneurs, students, and business enthusiasts evaluate a business through strategic insights and data-driven recommendations.
+
+The platform generates SWOT analyses, marketing audits, sales assessments, automation opportunities, business health scores, and growth roadmaps from simple business inputs.
+
+This project was built as a portfolio project to demonstrate business analysis, product thinking, dashboard design, and AI-powered insight generation.
+
+---
+
+## Problem Statement
+
+Many small businesses and startups struggle to identify operational inefficiencies, marketing gaps, and growth opportunities.
+
+FounderLens simplifies this process by providing a structured business analysis framework that helps users understand their strengths, weaknesses, opportunities, threats, and next growth steps.
+
+---
+
+## Features
+
+### Business Analysis
+
+* Business Overview Generation
+* Industry-Based Assessment
+* Business Health Score
+
+### Strategic Insights
+
+* SWOT Analysis
+* Growth Opportunity Detection
+* Risk Identification
+
+### Marketing Audit
+
+* Brand Evaluation
+* Content Strategy Review
+* Lead Generation Assessment
+
+### Sales Audit
+
+* Sales Process Review
+* Conversion Analysis
+* Follow-Up Recommendations
+
+### Automation Opportunities
+
+* Process Optimization Suggestions
+* Task Automation Recommendations
+* Efficiency Improvements
+
+### Growth Roadmap
+
+* 30-Day Action Plan
+* 90-Day Growth Strategy
+* 180-Day Scaling Roadmap
+
+### Dashboard Analytics
+
+* Interactive Dashboard
+* Insight Cards
+* Performance Metrics
+* Visual Reports
+
+---
+
+## Technology Stack
+
+* HTML5
+* CSS3
+* JavaScript
+* Responsive Web Design
+* AI-Powered Recommendation Engine
+* Data Visualization Components
+
+---
+
+## How It Works
+
+1. Enter business information.
+2. Select industry and business stage.
+3. Generate analysis.
+4. Review business insights.
+5. Explore SWOT analysis.
+6. View growth roadmap.
+7. Identify automation opportunities.
+8. Download or review reports.
+
+---
+
+## Screenshots
+
+### Homepage
+
+(Add screenshot here)
+
+### Business Audit Form
+
+(Add screenshot here)
+
+### Analysis Dashboard
+
+(Add screenshot here)
+
+### SWOT Analysis
+
+(Add screenshot here)
+
+### Growth Roadmap
+
+(Add screenshot here)
+
+---
+
+## Project Goals
+
+* Practice product development
+* Build a business-focused AI application
+* Explore dashboard design principles
+* Demonstrate analytical thinking
+* Showcase frontend development skills
+* Create a portfolio-ready project
+
+---
+
+## Future Improvements
+
+* OpenAI API Integration
+* Real Website Analysis
+* PDF Report Generation
+* User Authentication
+* Historical Analysis Tracking
+* Competitor Benchmarking
+* Industry Comparison Reports
+* Exportable Business Reports
+
+---
+
+## Author
+
+**Ananya Pandey**
+
+BCA Student | Data Analytics Enthusiast | Business & Technology Explorer
+
+---
+
+## License
+
+This project is created for educational and portfolio purposes.
