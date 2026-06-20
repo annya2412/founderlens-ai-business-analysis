@@ -1,91 +1,83 @@
-# FounderLens – AI-Powered Business Analysis Platform
+# FounderLens 🚀
 
-## Overview
+AI-Powered Business Analysis Platform
 
-FounderLens is an AI-powered business analysis platform designed to help founders, entrepreneurs, students, and business enthusiasts evaluate a business through strategic insights and data-driven recommendations.
+## Live Demo
 
-The platform generates SWOT analyses, marketing audits, sales assessments, automation opportunities, business health scores, and growth roadmaps from simple business inputs.
-
-This project was built as a portfolio project to demonstrate business analysis, product thinking, dashboard design, and AI-powered insight generation.
+🔗 https://founderlensapp.netlify.app/
 
 ---
 
-## Problem Statement
+## About The Project
 
-Many small businesses and startups struggle to identify operational inefficiencies, marketing gaps, and growth opportunities.
+FounderLens is an AI-powered business intelligence platform that helps analyze businesses and generate strategic insights.
 
-FounderLens simplifies this process by providing a structured business analysis framework that helps users understand their strengths, weaknesses, opportunities, threats, and next growth steps.
+The platform evaluates a business through SWOT analysis, marketing audits, sales assessments, automation recommendations, and growth roadmaps, providing a structured overview of business performance and improvement opportunities.
+
+This project was built as a portfolio project to demonstrate frontend development, dashboard design, business analysis concepts, and AI-driven product thinking.
 
 ---
 
-## Features
+## Key Features
 
 ### Business Analysis
 
-* Business Overview Generation
-* Industry-Based Assessment
+* Business Overview
+* Industry Assessment
 * Business Health Score
 
 ### Strategic Insights
 
 * SWOT Analysis
-* Growth Opportunity Detection
-* Risk Identification
+* Opportunity Identification
+* Risk Assessment
 
 ### Marketing Audit
 
-* Brand Evaluation
-* Content Strategy Review
-* Lead Generation Assessment
+* Branding Evaluation
+* Content Analysis
+* Lead Generation Review
 
 ### Sales Audit
 
-* Sales Process Review
-* Conversion Analysis
-* Follow-Up Recommendations
+* Sales Process Evaluation
+* Conversion Insights
+* Optimization Suggestions
 
-### Automation Opportunities
+### Automation Recommendations
 
-* Process Optimization Suggestions
-* Task Automation Recommendations
-* Efficiency Improvements
+* Process Improvement Ideas
+* Workflow Optimization
+* Efficiency Opportunities
 
 ### Growth Roadmap
 
 * 30-Day Action Plan
 * 90-Day Growth Strategy
-* 180-Day Scaling Roadmap
-
-### Dashboard Analytics
-
-* Interactive Dashboard
-* Insight Cards
-* Performance Metrics
-* Visual Reports
+* 180-Day Scaling Plan
 
 ---
 
-## Technology Stack
+## Tech Stack
 
 * HTML5
 * CSS3
 * JavaScript
 * Responsive Web Design
-* AI-Powered Recommendation Engine
-* Data Visualization Components
+* Analytics Dashboard UI
+* AI-Based Recommendation Framework
 
 ---
 
-## How It Works
+## Project Workflow
 
-1. Enter business information.
-2. Select industry and business stage.
-3. Generate analysis.
-4. Review business insights.
-5. Explore SWOT analysis.
-6. View growth roadmap.
-7. Identify automation opportunities.
-8. Download or review reports.
+1. Enter business details
+2. Generate analysis
+3. Review strategic insights
+4. Explore SWOT analysis
+5. Check business health score
+6. View growth roadmap
+7. Discover automation opportunities
 
 ---
 
@@ -93,47 +85,59 @@ FounderLens simplifies this process by providing a structured business analysis 
 
 ### Homepage
 
-(Add screenshot here)
+(Add Screenshot)
 
-### Business Audit Form
+### Business Audit Dashboard
 
-(Add screenshot here)
-
-### Analysis Dashboard
-
-(Add screenshot here)
+(Add Screenshot)
 
 ### SWOT Analysis
 
-(Add screenshot here)
+(Add Screenshot)
 
 ### Growth Roadmap
 
-(Add screenshot here)
+(Add Screenshot)
+
+### Business Health Score
+
+(Add Screenshot)
 
 ---
 
-## Project Goals
+## Learning Outcomes
 
-* Practice product development
-* Build a business-focused AI application
-* Explore dashboard design principles
-* Demonstrate analytical thinking
-* Showcase frontend development skills
-* Create a portfolio-ready project
+This project helped me explore:
+
+* Business Analysis
+* Product Thinking
+* Dashboard Design
+* User Experience Design
+* Frontend Development
+* Data Visualization Concepts
+* AI-Powered Applications
 
 ---
 
-## Future Improvements
+## Future Enhancements
 
 * OpenAI API Integration
-* Real Website Analysis
-* PDF Report Generation
-* User Authentication
-* Historical Analysis Tracking
+* PDF Report Export
+* Website URL Analysis
 * Competitor Benchmarking
-* Industry Comparison Reports
-* Exportable Business Reports
+* User Authentication
+* Historical Reports
+* Industry Comparison Engine
+
+---
+
+## Project Information
+
+**Project Type:** Portfolio Project
+
+**Role:** Solo Developer
+
+**Status:** Completed
 
 ---
 
@@ -141,10 +145,11 @@ FounderLens simplifies this process by providing a structured business analysis 
 
 **Ananya Pandey**
 
-BCA Student | Data Analytics Enthusiast | Business & Technology Explorer
+BCA Student | Data Analytics Enthusiast | AI & Business Technology Explorer
+
+LinkedIn: Add Your LinkedIn Profile
 
 ---
 
-## License
+⭐ If you found this project interesting, feel free to explore and provide feedback.
 
-This project is created for educational and portfolio purposes.
