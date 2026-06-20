@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FounderLens – AI-Powered Business Analysis Project</title>
+  <meta name="description" content="A portfolio project showcasing a client-side AI business audit tool, SWOT analyzer, and growth dashboard built with HTML, CSS, and JS.">
+  
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       GLOBAL NAV HEADER
+       ========================================================================== -->
+  <header id="global-header">
+    <div class="container nav-container">
+      <a href="#" class="logo" id="logo-link">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> FounderLens <span class="logo-badge">Project</span>
+      </a>
+      <div class="nav-actions">
+        <a href="https://github.com" target="_blank" class="github-link-btn" aria-label="GitHub Repository">
+          <i class="fa-brands fa-github"></i> <span>GitHub Project</span>
+        </a>
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       1. UNIFIED PORTFOLIO HOME VIEW (Dashboard-First Layout)
+       ========================================================================== -->
+  <main id="home-view" class="app-view active" style="padding-top: 4.5rem;">
+    <!-- Hero Header -->
+    <section class="hero container" style="padding: 4rem 0 2rem 0;">
+      <div class="badge-pill">
+        <i class="fa-solid fa-graduation-cap"></i> AI/Data Analytics Portfolio Project
+      </div>
+      <h1>FounderLens – AI-Powered <br><span>Business Analysis Project</span></h1>
+      <p style="margin-bottom: 1.5rem;">A portfolio project that analyzes businesses and generates strategic insights using client-side AI heuristic benchmarks.</p>
+      
+      <div class="tech-tag-row" style="display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+        <span class="tech-tag-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+        <span class="tech-tag-badge"><i class="fa-brands fa-css3-alt"></i> CSS3 Custom</span>
+        <span class="tech-tag-badge"><i class="fa-brands fa-js"></i> ES6 JavaScript</span>
+        <span class="tech-tag-badge"><i class="fa-solid fa-chart-line"></i> Chart.js</span>
+      </div>
+    </section>
+
+    <!-- Main Showcase: Form and Live Preview -->
+    <section class="container" style="margin-bottom: 5rem;">
+      <div class="showcase-grid">
+        
+        <!-- Left: Input Form Panel -->
+        <div class="glass-panel showcase-form-card">
+          <h3 class="showcase-title"><i class="fa-solid fa-gears"></i> Input Parameters</h3>
+          <p style="font-size: 0.85rem; margin-bottom: 1.5rem;">Fill out the parameters below to trigger the heuristic evaluation engine.</p>
+          
+          <form id="audit-form">
+            <div class="form-group">
+              <label for="biz-name">Business Name</label>
+              <input type="text" id="biz-name" class="form-input" placeholder="e.g., AlphaTech Systems" required>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="biz-industry">Industry Sector</label>
+                <select id="biz-industry" class="form-input" required>
+                  <option value="" disabled selected>Select industry</option>
+                  <option value="saas">SaaS / Software</option>
+                  <option value="ecommerce">E-Commerce & Retail</option>
+                  <option value="agency">Agency / Services</option>
+                  <option value="local">Local Business</option>
+                  <option value="fintech">FinTech / Finance</option>
+                  <option value="healthcare">Healthcare / Biotech</option>
+                  <option value="general">Other / General</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="biz-website">Website URL</label>
+                <input type="url" id="biz-website" class="form-input" placeholder="e.g., https://alphatech.io" required>
+              </div>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="biz-stage">Business Stage</label>
+                <select id="biz-stage" class="form-input" required>
+                  <option value="" disabled selected>Select stage</option>
+                  <option value="startup">Startup (Pre-revenue)</option>
+                  <option value="growing">Growing (Scaling)</option>
+                  <option value="established">Established</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="biz-teamsize">Team Size</label>
+                <select id="biz-teamsize" class="form-input" required>
+                  <option value="" disabled selected>Select size</option>
+                  <option value="1">Solo Founder</option>
+                  <option value="3">Small Team (2-5)</option>
+                  <option value="10">Mid-sized (6-15)</option>
+                  <option value="30">Scaling (16-50)</option>
+                  <option value="100">Enterprise (50+)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="biz-challenge">Biggest Challenge</label>
+              <select id="biz-challenge" class="form-input" required>
+                <option value="" disabled selected>Select biggest challenge</option>
+                <option value="acquisition">Customer Acquisition (Lead Generation)</option>
+                <option value="scaling">Scaling Operations (Manual Overhead)</option>
+                <option value="conversion">Low Conversion Rate (Funnel Leaks)</option>
+                <option value="cashflow">Cash Flow & Funding (Working Capital)</option>
+                <option value="pmf">Product-Market Fit (User Retention)</option>
+              </select>
+            </div>
+            
+            <div style="display:grid; grid-template-columns: 1.5fr 1fr; gap:1rem; margin-top: 1.5rem;">
+              <button type="submit" class="btn btn-primary" id="submit-btn" style="width:100%;">
+                Generate Audit <i class="fa-solid fa-gear fa-spin" style="display:none;" id="form-spinner"></i>
+              </button>
+              <button type="button" class="btn btn-secondary" id="demo-btn" style="width:100%;">
+                Load Demo Data
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Right: Interactive Sample Analysis Dashboard -->
+        <div class="glass-panel showcase-preview-card">
+          <div class="preview-header">
+            <span class="preview-tag"><i class="fa-solid fa-chart-simple"></i> Live Preview Panel</span>
+            <span class="preview-status"><span class="status-pulse"></span> Showing Demo Case</span>
+          </div>
+          
+          <div class="preview-body" id="preview-dashboard-content">
+            <!-- Header elements in mini preview -->
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+              <div>
+                <h4 id="prev-biz-name" style="font-size:1.35rem; color:var(--text-primary);">AlphaTech Software</h4>
+                <div style="font-size:0.75rem; color:var(--text-muted); display:flex; gap:0.5rem; margin-top:0.15rem;">
+                  <span id="prev-biz-website">alphatech.io</span> | 
+                  <span id="prev-biz-industry">SaaS</span> | 
+                  <span id="prev-biz-stage">Growing</span>
+                </div>
+              </div>
+              <div class="prev-score-badge">
+                <span id="prev-health-score">82</span>
+                <span style="font-size:0.65rem; text-transform:uppercase; font-weight:700;">Score</span>
+              </div>
+            </div>
+            
+            <!-- Quick Indicators -->
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+              <div class="prev-metric-box">
+                <span class="prev-metric-label">Marketing Score</span>
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-top:0.25rem;">
+                  <div class="prev-bar-outer"><div class="prev-bar-inner" id="prev-mkt-bar" style="width:80%;"></div></div>
+                  <span style="font-size:0.8rem; font-weight:700;" id="prev-mkt-val">80%</span>
+                </div>
+              </div>
+              <div class="prev-metric-box">
+                <span class="prev-metric-label">Sales Score</span>
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-top:0.25rem;">
+                  <div class="prev-bar-outer"><div class="prev-bar-inner" id="prev-sales-bar" style="width:84%;"></div></div>
+                  <span style="font-size:0.8rem; font-weight:700;" id="prev-sales-val">84%</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- SWOT Preview Box -->
+            <div class="prev-swot-box">
+              <span class="prev-section-label"><i class="fa-solid fa-rectangle-list"></i> SWOT Highlights</span>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-top:0.5rem;">
+                <div class="prev-swot-item strengths">
+                  <strong>Strength:</strong> <span id="prev-swot-strength">High recurring ARR & scaling margins.</span>
+                </div>
+                <div class="prev-swot-item opportunities">
+                  <strong>Opportunity:</strong> <span id="prev-swot-opportunity">Leverage CRM auto-routing loops.</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Roadmap Preview Box -->
+            <div class="prev-roadmap-box" style="margin-top:1.25rem;">
+              <span class="prev-section-label"><i class="fa-solid fa-route"></i> Immediate Action (Next 30 Days)</span>
+              <p id="prev-roadmap-text" style="font-size:0.85rem; color:var(--text-secondary); margin-top:0.25rem;">
+                Set up automated email responses and lead scoring rules in CRM to avoid pipeline drop-off.
+              </p>
+            </div>
+            
+            <div style="text-align:center; margin-top: 1.5rem;">
+              <button class="btn btn-outline btn-block btn-sm" id="prev-view-btn">
+                Open Full Interactive Dashboard <i class="fa-solid fa-expand" style="margin-left:0.25rem;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- SECTION 1: PROJECT OVERVIEW -->
+    <section class="section-padding container">
+      <div class="section-header">
+        <h2>Project Overview</h2>
+        <p>Analyzing the challenges, system mechanics, and project scope.</p>
+      </div>
+      <div class="overview-box glass-panel" style="padding: 3rem; display:grid; grid-template-columns:1.5fr 1fr; gap:3rem; align-items:center;">
+        <div>
+          <h3 style="margin-bottom: 1rem; color:var(--text-primary);">Purpose of FounderLens</h3>
+          <p style="margin-bottom: 1.5rem; line-height: 1.6;">
+            FounderLens was developed as an educational demonstration of static data analysis and heuristic auditing. In early-stage startups and small businesses, founders frequently lack the objective resources to identify operational leaks. Retaining strategy consultants is cost-prohibitive, while generic survey templates fail to accommodate industry nuances.
+          </p>
+          <h4 style="margin-bottom:0.5rem; color:var(--text-primary);">The Problem Solved</h4>
+          <p style="line-height: 1.6;">
+            This tool processes basic company profiles and models metrics dynamically against historical growth benchmarks. By translating high-level business challenges into structured audits across marketing pipelines, conversion funnels, automation layers, and roadmaps, it demonstrates how raw inputs can be engineered into actionable business intelligence.
+          </p>
+        </div>
+        <div style="background:var(--bg-tertiary); padding:2rem; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+          <h4 style="margin-bottom: 1rem; color:var(--text-primary);"><i class="fa-solid fa-list-check"></i> Project Scope</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; font-size:0.9rem;">
+            <li><i class="fa-solid fa-circle-check" style="color:var(--primary);"></i> Static analysis processing</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--primary);"></i> Modular state management</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--primary);"></i> Dynamic SVG layout building</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--primary);"></i> Responsive CSS variables</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--primary);"></i> Dual light/dark theme toggles</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FEATURES -->
+    <section class="section-padding container">
+      <div class="section-header">
+        <h2>Project Core Features</h2>
+        <p>Exploring the data modules processed by the evaluation engine.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h3>Business Health Score</h3>
+          <p>Synthesizes overall business alignment into an animated visual score gauge, dividing results into distinct hazard, warnings, and safety zones.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-chart-pie"></i></div>
+          <h3>SWOT Matrix Generator</h3>
+          <p>Maps 12 strategic criteria representing core strengths, operational vulnerabilities, market expansions, and external risks based on input parameters.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>Marketing Channels Audit</h3>
+          <p>Provides comparative grading across branding, content calendars, lead acquisition, and social channels paired with dynamic advice.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+          <h3>Sales Pipeline Diagnostics</h3>
+          <p>Grades follow-up time delays and checkout conversions, mapping metrics on integrated Chart.js radar charts.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>Automation Workflows</h3>
+          <p>Identifies high-frequency manual loops and maps them to API integrators (Zapier, Klaviyo, Sumsub) with dynamic priority markers.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-route"></i></div>
+          <h3>180-Day Timeline Roadmap</h3>
+          <p>Establishes chronological priorities divided into immediate 30-day, medium-term 90-day, and long-term 6-month target objectives.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: HOW IT WORKS -->
+    <section class="section-padding container">
+      <div class="section-header">
+        <h2>Methodology Workflow</h2>
+        <p>The processing pipeline behind the heuristic evaluation engine.</p>
+      </div>
+      <div class="methodology-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:2rem;">
+        <div class="methodology-card glass-panel" style="padding:2rem; text-align:center; position:relative;">
+          <div class="step-number">01</div>
+          <h4 style="margin-top: 1rem; margin-bottom: 0.5rem; color:var(--text-primary);">Enter Details</h4>
+          <p style="font-size:0.9rem;">Input business sector, website URL, stage, team layout, and primary operational friction point.</p>
+        </div>
+        <div class="methodology-card glass-panel" style="padding:2rem; text-align:center; position:relative;">
+          <div class="step-number">02</div>
+          <h4 style="margin-top: 1rem; margin-bottom: 0.5rem; color:var(--text-primary);">AI Heuristic Analysis</h4>
+          <p style="font-size:0.9rem;">The client-side rules engine parses factors and correlates modifiers across sales and marketing matrices.</p>
+        </div>
+        <div class="methodology-card glass-panel" style="padding:2rem; text-align:center; position:relative;">
+          <div class="step-number">03</div>
+          <h4 style="margin-top: 1rem; margin-bottom: 0.5rem; color:var(--text-primary);">Assemble Audit Report</h4>
+          <p style="font-size:0.9rem;">SWOT quadrants, automation matrices, timelines, and grading details compile into a unified payload.</p>
+        </div>
+        <div class="methodology-card glass-panel" style="padding:2rem; text-align:center; position:relative;">
+          <div class="step-number">04</div>
+          <h4 style="margin-top: 1rem; margin-bottom: 0.5rem; color:var(--text-primary);">Review Insights</h4>
+          <p style="font-size:0.9rem;">Examine performance radar visualizations, progress gauges, and timelines inside the analytics suite.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TECHNOLOGY STACK -->
+    <section class="section-padding container">
+      <div class="section-header">
+        <h2>Technology Stack & Architecture</h2>
+        <p>The client-side technologies utilized to deploy the project.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:2rem;">
+        <div class="tech-card glass-panel" style="padding:2rem; text-align:center;">
+          <i class="fa-brands fa-html5" style="font-size: 2.5rem; color: #f06529; margin-bottom: 1rem;"></i>
+          <h3>HTML5</h3>
+          <p style="font-size:0.85rem; margin-top:0.5rem;">Semantic structuring separating home layouts, preview displays, and dashboard screens.</p>
+        </div>
+        <div class="tech-card glass-panel" style="padding:2rem; text-align:center;">
+          <i class="fa-brands fa-css3-alt" style="font-size: 2.5rem; color: #2965f1; margin-bottom: 1rem;"></i>
+          <h3>CSS3</h3>
+          <p style="font-size:0.85rem; margin-top:0.5rem;">Custom CSS variables mapping responsive grids, glassmorphism filters, themes, and keyframe animations.</p>
+        </div>
+        <div class="tech-card glass-panel" style="padding:2rem; text-align:center;">
+          <i class="fa-brands fa-js" style="font-size: 2.5rem; color: #f0db4f; margin-bottom: 1rem;"></i>
+          <h3>JavaScript (ES6)</h3>
+          <p style="font-size:0.85rem; margin-top:0.5rem;">Modular scripts running client-side data validation, theme sync, loading loops, and DOM renders.</p>
+        </div>
+        <div class="tech-card glass-panel" style="padding:2rem; text-align:center;">
+          <i class="fa-solid fa-chart-pie" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+          <h3>Chart.js</h3>
+          <p style="font-size:0.85rem; margin-top:0.5rem;">Interactive canvas-based radar elements dynamically rendering sales and marketing channel indicators.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="logo footer-logo" style="justify-content:center;">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> FounderLens
+        </div>
+        <p style="font-size:0.85rem; opacity:0.85;">
+          FounderLens is an open-source student portfolio project. Licensed under the MIT License.
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Dynamic Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="spinner"></div>
+    <div class="loading-text" id="loading-text">Analyzing business profiles...</div>
+  </div>
+
+  <!-- ==========================================================================
+       2. FULL RESULTS DASHBOARD VIEW (Visible after submitting or viewing)
+       ========================================================================== -->
+  <main id="dashboard-view" class="app-view">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="logo sidebar-logo">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> FounderLens
+        </div>
+        <nav>
+          <ul class="sidebar-nav">
+            <li><span class="sidebar-nav-link active" data-target="dash-overview"><i class="fa-solid fa-chart-line"></i> Overview</span></li>
+            <li><span class="sidebar-nav-link" data-target="dash-swot"><i class="fa-solid fa-rectangle-list"></i> SWOT Analysis</span></li>
+            <li><span class="sidebar-nav-link" data-target="dash-marketing"><i class="fa-solid fa-bullhorn"></i> Marketing Audit</span></li>
+            <li><span class="sidebar-nav-link" data-target="dash-sales"><i class="fa-solid fa-sack-dollar"></i> Sales Audit</span></li>
+            <li><span class="sidebar-nav-link" data-target="dash-automation"><i class="fa-solid fa-robot"></i> Automation</span></li>
+            <li><span class="sidebar-nav-link" data-target="dash-roadmap"><i class="fa-solid fa-route"></i> Growth Roadmap</span></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <button class="btn btn-outline btn-block" id="new-audit-btn">
+          <i class="fa-solid fa-arrow-left"></i> Project Home
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Area -->
+    <section class="dashboard-main">
+      <!-- Header Controls -->
+      <div class="dashboard-header">
+        <div>
+          <h1 id="dash-title-name">Business Audit</h1>
+          <div class="dashboard-meta">
+            <span id="dash-meta-website"><i class="fa-solid fa-globe"></i> website.com</span>
+            <span id="dash-meta-industry"><i class="fa-solid fa-industry"></i> Industry</span>
+            <span id="dash-meta-stage"><i class="fa-solid fa-tag"></i> Stage</span>
+          </div>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:center;">
+          <button class="theme-toggle" id="dash-theme-toggle" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+          </button>
+          <button class="btn btn-primary" id="dash-print-btn">
+            <i class="fa-solid fa-download"></i> Export Report
+          </button>
+        </div>
+      </div>
+
+      <!-- Overview Dashboard Panel -->
+      <div class="dashboard-grid" id="dash-overview">
+        <!-- Business Summary -->
+        <div class="dashboard-card glass-panel" style="margin-bottom:0;">
+          <h3 class="dashboard-card-title"><i class="fa-solid fa-file-invoice"></i> Business Profile Overview</h3>
+          <div class="overview-details">
+            <div class="overview-item">
+              <h4>Summary</h4>
+              <p id="dash-summary-text">...</p>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+              <div class="overview-item">
+                <h4>Primary Target Audience</h4>
+                <p id="dash-audience-text">...</p>
+              </div>
+              <div class="overview-item">
+                <h4>Unique Value Proposition (UVP)</h4>
+                <p id="dash-uvp-text">...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Overall Business Health Score Gauge -->
+        <div class="dashboard-card glass-panel" style="margin-bottom:0;">
+          <h3 class="dashboard-card-title"><i class="fa-solid fa-heart-pulse"></i> Overall Health Score</h3>
+          <div class="health-score-container">
+            <div class="radial-gauge">
+              <svg viewBox="0 0 160 160">
+                <circle class="gauge-bg" cx="80" cy="80" r="70"></circle>
+                <circle class="gauge-fill" id="health-gauge-circle" cx="80" cy="80" r="70"></circle>
+              </svg>
+              <div class="gauge-val-wrapper">
+                <span class="gauge-value" id="health-score-value">0</span>
+                <span class="gauge-label">Score</span>
+              </div>
+            </div>
+            <div class="health-status" id="health-status-text">Good</div>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;" id="health-status-desc">Your operational vectors are well aligned.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SWOT Analysis Panel -->
+      <div class="dashboard-card glass-panel" id="dash-swot">
+        <h3 class="dashboard-card-title"><i class="fa-solid fa-rectangle-list"></i> SWOT Strategic Quadrants</h3>
+        <div class="swot-grid">
+          <!-- Strengths -->
+          <div class="swot-card strengths">
+            <h4><i class="fa-solid fa-circle-check"></i> Strengths</h4>
+            <ul id="swot-strengths-list"></ul>
+          </div>
+          <!-- Weaknesses -->
+          <div class="swot-card weaknesses">
+            <h4><i class="fa-solid fa-triangle-exclamation"></i> Weaknesses</h4>
+            <ul id="swot-weaknesses-list"></ul>
+          </div>
+          <!-- Opportunities -->
+          <div class="swot-card opportunities">
+            <h4><i class="fa-solid fa-lightbulb"></i> Opportunities</h4>
+            <ul id="swot-opportunities-list"></ul>
+          </div>
+          <!-- Threats -->
+          <div class="swot-card threats">
+            <h4><i class="fa-solid fa-shield-halved"></i> Threats</h4>
+            <ul id="swot-threats-list"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing Audit Panel -->
+      <div class="dashboard-card glass-panel" id="dash-marketing">
+        <h3 class="dashboard-card-title"><i class="fa-solid fa-bullhorn"></i> Marketing Channels Audit</h3>
+        <div class="audit-container">
+          <!-- Summary Score Circle -->
+          <div class="audit-score-summary">
+            <div class="audit-score-circle" id="mkt-score-circle">0</div>
+            <h4>Marketing Health</h4>
+            <p>Score based on standard industry customer acquisition efficacy.</p>
+            <div style="margin-top: 1.5rem; width: 100%; height: 160px; display: flex; justify-content: center; align-items: center;">
+              <!-- Radar Chart -->
+              <canvas id="marketingChart" style="max-height: 100%; max-width: 100%;"></canvas>
+            </div>
+          </div>
+          <!-- Detailed breakdown progress bars -->
+          <div class="audit-metrics">
+            <div class="metric-bar-group">
+              <div class="metric-bar-header">
+                <h5>Branding & Positioning</h5>
+                <span id="mkt-brand-val">0/100</span>
+              </div>
+              <div class="metric-bar-outer">
+                <div class="metric-bar-inner" id="mkt-brand-bar"></div>
+              </div>
+            </div>
+            <div class="metric-bar-group">
+              <div class="metric-bar-header">
+                <h5>Content Marketing</h5>
+                <span id="mkt-content-val">0/100</span>
+              </div>
+              <div class="metric-bar-outer">
+                <div class="metric-bar-inner" id="mkt-content-bar"></div>
+              </div>
+            </div>
+            <div class="metric-bar-group">
+              <div class="metric-bar-header">
+                <h5>Lead Generation</h5>
+                <span id="mkt-lead-val">0/100</span>
+              </div>
+              <div class="metric-bar-outer">
+                <div class="metric-bar-inner" id="mkt-lead-bar"></div>
+              </div>
+            </div>
+            <div class="metric-bar-group">
+              <div class="metric-bar-header">
+                <h5>Social Media Presence</h5>
+                <span id="mkt-social-val">0/100</span>
+              </div>
+              <div class="metric-bar-outer">
+                <div class="metric-bar-inner" id="mkt-social-bar"></div>
+              </div>
+            </div>
+            
+            <!-- Recommendations details box -->
+            <div class="audit-insights">
+              <h5><i class="fa-solid fa-circle-info"></i> Inbound Optimization Advisory</h5>
+              <p id="mkt-insights-text">...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Audit Panel -->
+      <div class="dashboard-card glass-panel" id="dash-sales">
+        <h3 class="dashboard-card-title"><i class="fa-solid fa-sack-dollar"></i> Sales Pipeline & Conversion Audit</h3>
+        <div class="audit-container">
+          <!-- Summary Score Circle -->
+          <div class="audit-score-summary">
+            <div class="audit-score-circle" id="sales-score-circle">0</div>
+            <h4>Sales Efficacy</h4>
+            <p>Score based on conversion rate optimizations and pipeline systems.</p>
+            <div style="margin-top: 1.5rem; width: 100%; height: 160px; display: flex; justify-content: center; align-items: center;">
+              <!-- Radar Chart -->
+              <canvas id="salesChart" style="max-height: 100%; max-width: 100%;"></canvas>
+            </div>
+          </div>
+          <!-- Detailed breakdown progress bars -->
+          <div class="audit-metrics">
+            <div class="metric-bar-group">
+              <div class="metric-bar-header">
+                <h5>Sales Process & CRM</h5>
+                <span id="sales-process-val">0/100</span>
+              </div>
+              <div class="metric-bar-outer">
+                <div class="metric-bar-inner" id="sales-process-bar"></div>
+              </div>
+            </div>
+            <div class="metric-bar-group">
+              <div class="metric-bar-header">
+                <h5>Follow-up & Nurturing</h5>
+                <span id="sales-followup-val">0/100</span>
+              </div>
+              <div class="metric-bar-outer">
+                <div class="metric-bar-inner" id="sales-followup-bar"></div>
+              </div>
+            </div>
+            <div class="metric-bar-group">
+              <div class="metric-bar-header">
+                <h5>Conversion Rate Optimization (CRO)</h5>
+                <span id="sales-cro-val">0/100</span>
+              </div>
+              <div class="metric-bar-outer">
+                <div class="metric-bar-inner" id="sales-cro-bar"></div>
+              </div>
+            </div>
+            
+            <!-- Recommendations details box -->
+            <div class="audit-insights">
+              <h5><i class="fa-solid fa-circle-info"></i> Funnel Efficiency Advisory</h5>
+              <p id="sales-insights-text">...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automation Opportunities Panel -->
+      <div class="dashboard-card glass-panel" id="dash-automation">
+        <h3 class="dashboard-card-title"><i class="fa-solid fa-robot"></i> Suggested Process Automations</h3>
+        <p style="margin-bottom: 1.5rem;">Repetitive, high-friction operational workflows identified for low-code database syncing and pipeline automations.</p>
+        <div class="automation-table-wrapper">
+          <table class="automation-table">
+            <thead>
+              <tr>
+                <th>Repetitive Task / Workflow</th>
+                <th>Recommended Tools</th>
+                <th>Efficacy Impact</th>
+              </tr>
+            </thead>
+            <tbody id="automation-table-body">
+              <!-- Dynamically populated rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Growth Roadmap Panel -->
+      <div class="dashboard-card glass-panel" id="dash-roadmap">
+        <h3 class="dashboard-card-title"><i class="fa-solid fa-route"></i> 180-Day Growth Roadmap</h3>
+        <p style="margin-bottom: 2rem;">A prioritized action timeline tailored to resolve your biggest hurdle while navigating your current growth stage.</p>
+        
+        <div class="timeline">
+          <!-- Item 1: 30 Days -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-time">Next 30 Days</span>
+            <div class="timeline-content">
+              <h4>Short-Term Strategy: Operational Quick Wins</h4>
+              <p id="roadmap-30-text">...</p>
+            </div>
+          </div>
+          
+          <!-- Item 2: 90 Days -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-time">Next 90 Days</span>
+            <div class="timeline-content">
+              <h4>Medium-Term Strategy: Scale Acquisition</h4>
+              <p id="roadmap-90-text">...</p>
+            </div>
+          </div>
+          
+          <!-- Item 3: 6 Months -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-time">Next 6 Months</span>
+            <div class="timeline-content">
+              <h4>Long-Term Strategy: Standardize & Automate</h4>
+              <p id="roadmap-180-text">...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="analyzer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
